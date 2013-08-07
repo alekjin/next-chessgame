@@ -66,17 +66,38 @@ public class BoardTest extends TestCase {
 		assertEquals(new Pawn(Color.WHITE, target), board.findPiece(target));
 		System.out.println(board.generateBoard());
 
+        try {
         // "a5" == Empty Place, "a9" == Invalid Place
         board.movePiece("a5", "a9");
-        board.movePiece("a5", "a1");
-        board.movePiece("a1", "a9");
+        } catch (MyException error) {
+            System.out.println(error);
+        }
 
+        try {
+        board.movePiece("a5", "a1");
+        } catch (MyException error) {
+            System.out.println(error);
+        }
+
+        try {
+        board.movePiece("a1", "a9");
+        } catch (MyException error) {
+            System.out.println(error);
+        }
+
+        try {
         // "c1" and "c2" are same color
         board.movePiece("c1", "c2");
+        } catch (MyException error) {
+            System.out.println(error);
+        }
 
+        try {
         // "e2" is Pawn, it cannot move to "c6"
         board.movePiece("e2", "c6");
-
+        } catch (MyException error) {
+            System.out.println(error);
+        }
 
 	}
 

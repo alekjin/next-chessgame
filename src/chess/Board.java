@@ -11,7 +11,7 @@ public class Board implements PieceOperations {
     public static final String NEW_LINE = System.getProperty("line.separator");
 	public static final int ROW_SIZE = 8;
 	public static final int COLUMN_SIZE = 8;
-    private BoardPrint printType;
+    private BoardPrint printType = new BoardPrintConsole();
     PieceOperations pieceOperations;
         @Override
         public char getSymbol() {
@@ -42,6 +42,7 @@ public class Board implements PieceOperations {
 	List<Rank> ranks = new ArrayList<Rank>();
 	
 	Board() {
+
 	}
 
 	void initialize() {
@@ -80,31 +81,28 @@ public class Board implements PieceOperations {
 		return rank.findPiece(position);
 	}
 
-	void movePiece(String source, String target) {
+	void movePiece(String source, String target) throws MyException {
 		movePiece(new Position(source), new Position(target));
 	}
 
-	void movePiece(Position source, Position target) {
+	void movePiece(Position source, Position target) throws MyException {
 
         if (findPiece(source).getSymbol() == Piece.Type.EMPTY.getSymbol()) {
-            System.out.println("Error, This "+ source +" is EMPTY!");
+            throw new MyException("Error, This " + source + " is Empty!");
         }
 
-        else if (target.isValid() == false) {
-            System.out.println("Error, This " + target + " is out of range!");
+        if (target.isValid() == false) {
+            throw new MyException("Error, This " + target + " is out of range!");
         }
 
-        else if (findPiece(source).getColor() == findPiece(target).getColor()) {
-            System.out.println("Error, You cannot move Piece with same color!");
+        if (findPiece(source).getColor() == findPiece(target).getColor()) {
+            throw new MyException("Error, You cannot move Piece with same color!");
         }
 
-        else if (findPiece(source).getPossibleMoves().contains(target) == false) {
-            System.out.println("Error, You cannot move Piece with invalid place!");
-            System.out.println("It can move only");
-            System.out.println(findPiece(source).getPossibleMoves());
+        if (findPiece(source).getPossibleMoves().contains(target) == false) {
+            throw new MyException("Error, You cannot move Piece with invalid place!" + NEW_LINE + "It can move only" + findPiece(source).getPossibleMoves());
         }
 
-        else {
 		Piece targetPiece = findPiece(source);
 		Piece sourcePiece = targetPiece.leave();
 		
@@ -113,7 +111,6 @@ public class Board implements PieceOperations {
 		
 		Rank targetRank = ranks.get(target.getY());
 		targetRank.move(targetPiece, target);
-        }
 
 	}
 	
@@ -131,7 +128,8 @@ public class Board implements PieceOperations {
     public String generateBoard() {
         StringBuilder sb = new StringBuilder();
         for (int i = Board.ROW_SIZE; i > 0; i--) {
-            sb.append(generateRank(i-1) + printType.setCodeType());
+            sb.append(generateRank(i - 1));
+            sb.append(printType.setCodeType());
         }
         return sb.toString();
     }
