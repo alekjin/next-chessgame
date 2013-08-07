@@ -1,5 +1,6 @@
 package chess;
 
+
 import junit.framework.TestCase;
 import pieces.Empty;
 import pieces.Pawn;
@@ -78,4 +79,13 @@ public class BoardTest extends TestCase {
 
 
 	}
+
+    public void testBoardPrintType() throws Exception {
+        board.initialize();
+        board.setPrintType(new BoardPrintHTML());
+        System.out.println(board.generateBoard());
+
+        board.setPrintType(new BoardPrintConsole());
+        System.out.println(board.generateBoard());
+    }
 }

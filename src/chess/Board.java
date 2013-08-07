@@ -7,11 +7,12 @@ import pieces.Piece;
 import pieces.PieceOperations;
 import pieces.Position;
 
-public class Board implements PieceOperations{
-	public static final String NEW_LINE = System.getProperty("line.separator");
+public class Board implements PieceOperations {
+    public static final String NEW_LINE = System.getProperty("line.separator");
 	public static final int ROW_SIZE = 8;
 	public static final int COLUMN_SIZE = 8;
-    private PieceOperations pieceOperations;
+    private BoardPrint printType;
+    PieceOperations pieceOperations;
         @Override
         public char getSymbol() {
             return pieceOperations.getSymbol();  //To change body of implemented methods use File | Settings | File Templates.
@@ -123,13 +124,15 @@ public class Board implements PieceOperations{
 		return sb.toString();
 	}
 
-	String generateBoard() {
-		StringBuilder sb = new StringBuilder();
-		for (int i = ROW_SIZE; i > 0; i--) {
-			sb.append(generateRank(i-1) + NEW_LINE);
-		}
-		return sb.toString();
-	}
+    void setPrintType (BoardPrint printType) {
+        this.printType = printType;
+    }
 
-
+    public String generateBoard() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = Board.ROW_SIZE; i > 0; i--) {
+            sb.append(generateRank(i-1) + printType.setCodeType());
+        }
+        return sb.toString();
+    }
 }
