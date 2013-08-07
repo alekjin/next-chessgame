@@ -1,8 +1,6 @@
 package pieces;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Vector;
+import java.util.*;
 
 
 public abstract class Piece {
@@ -189,6 +187,18 @@ public abstract class Piece {
         }
         position = positionReal;
     }
+
+    ArrayList<Position> deleteDuplicate(ArrayList<Position> list) {
+        ArrayList result = new ArrayList<Position>();
+        HashSet hs = new HashSet(list);
+
+        Iterator it = hs.iterator();
+        while(it.hasNext()){
+            result.add(it.next());
+        }
+        return result;
+    }
+
 	
 	@Override
 	public int hashCode() {

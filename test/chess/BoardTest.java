@@ -71,8 +71,8 @@ public class BoardTest extends TestCase {
         // "c1" and "c2" are same color
         board.movePiece("c1", "c2");
 
-        // "c2" is Pawn, it cannot move to "c6"
-        board.movePiece("c2", "c6");
+        // "e2" is Pawn, it cannot move to "c6"
+        board.movePiece("e2", "c6");
 
 
 	}

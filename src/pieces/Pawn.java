@@ -35,6 +35,6 @@ public class Pawn extends Piece {
         else
             ;
 
-        return possiblePositionList;
+        return deleteDuplicate(possiblePositionList);
 	}
 }
