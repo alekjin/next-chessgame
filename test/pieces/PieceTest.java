@@ -62,5 +62,13 @@ public class PieceTest extends TestCase {
 
         Piece WhitePawn = new Pawn(Color.WHITE, source);
         System.out.println(WhitePawn.getPossibleMoves());
+
+        Position source2 = new Position("b2");
+        Piece StartPawn = new Pawn(Color.WHITE, source2);
+        System.out.println(StartPawn.getPossibleMoves());
+
+        Position source3 = new Position("b7");
+        Piece StartPawn2 = new Pawn(Color.BLACK, source3);
+        System.out.println(StartPawn2.getPossibleMoves());
     }
 }
