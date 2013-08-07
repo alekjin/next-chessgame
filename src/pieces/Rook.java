@@ -9,6 +9,11 @@ public class Rook extends Piece {
 
 	@Override
 	List<Position> getPossibleMoves() {
-		return null;
+		getPossibleMovesNorth();
+        getPossibleMovesSouth();
+        getPossibleMovesEast();
+        getPossibleMovesWest();
+
+        return possiblePositionList;
 	}
 }

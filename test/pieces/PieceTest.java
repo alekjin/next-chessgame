@@ -71,4 +71,10 @@ public class PieceTest extends TestCase {
         Piece StartPawn2 = new Pawn(Color.BLACK, source3);
         System.out.println(StartPawn2.getPossibleMoves());
     }
+
+    public void testRookGetPossibleMove() throws Exception {
+        Position source = new Position("f4");
+        Piece Rook = new Rook(Color.BLACK, source);
+        System.out.println(Rook.getPossibleMoves());
+    }
 }
