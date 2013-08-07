@@ -36,4 +36,10 @@ public class PieceTest extends TestCase {
         Piece Bishop2 = new Bishop(Color.WHITE, source2);
         System.out.println(Bishop2.getPossibleMoves());
 	}
+
+    public void testEmptyGetPossibleMove() throws Exception {
+        Position source = new Position("d4");
+        Piece Empty = new Empty(Color.NOCOLOR, source);
+        System.out.println(Empty.getPossibleMoves());
+    }
 }
