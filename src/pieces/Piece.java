@@ -1,6 +1,8 @@
 package pieces;
 
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Vector;
 
 
 public abstract class Piece {
@@ -33,11 +35,14 @@ public abstract class Piece {
 	private Color color;
 	private Type type;
 	private Position position;
+    private Position positionReal;
+    protected ArrayList<Position> possiblePositionList =  new ArrayList<Position>();
 	
 	Piece(Color color, Type type, Position position) {
 		this.color = color;
 		this.type = type;
 		this.position = position;
+        positionReal = position;
 	}
 	
 	public char getSymbol() {
@@ -77,6 +82,100 @@ public abstract class Piece {
 	}
 	
 	abstract List<Position> getPossibleMoves();
+
+    protected void getPossibleMovesNorth() {
+        for (int i = 0 ; i < 8 ; i++) {
+            position = position.move(Direction.NORTH);
+
+            if (position.isValid()) {
+
+                possiblePositionList.add(position);
+            }
+        }
+        position = positionReal;
+    }
+
+    protected void getPossibleMovesNorthEast() {
+        for (int i = 0 ; i < 8 ; i++) {
+            position = position.move(Direction.NORTHEAST);
+
+            if (position.isValid()) {
+
+                possiblePositionList.add(position);
+            }
+        }
+        position = positionReal;
+    }
+
+    protected void getPossibleMovesEast() {
+        for (int i = 0 ; i < 8 ; i++) {
+            position = position.move(Direction.EAST);
+
+            if (position.isValid()) {
+
+                possiblePositionList.add(position);
+            }
+        }
+        position = positionReal;
+    }
+
+    protected void getPossibleMovesSouthEast() {
+        for (int i = 0 ; i < 8 ; i++) {
+            position = position.move(Direction.SOUTHEAST);
+
+            if (position.isValid())
+                possiblePositionList.add(position);
+        }
+        position = positionReal;
+    }
+
+    protected void getPossibleMovesSouth() {
+        for (int i = 0 ; i < 8 ; i++) {
+            position = position.move(Direction.SOUTH);
+
+            if (position.isValid()) {
+
+                possiblePositionList.add(position);
+            }
+        }
+        position = positionReal;
+    }
+
+    protected void getPossibleMovesSouthWest() {
+        for (int i = 0 ; i < 8 ; i++) {
+            position = position.move(Direction.SOUTHWEST);
+
+            if (position.isValid()) {
+
+                possiblePositionList.add(position);
+            }
+        }
+        position = positionReal;
+    }
+
+    protected void getPossibleMovesWest() {
+        for (int i = 0 ; i < 8 ; i++) {
+            position = position.move(Direction.WEST);
+
+            if (position.isValid()) {
+
+                possiblePositionList.add(position);
+            }
+        }
+        position = positionReal;
+    }
+
+    protected void getPossibleMovesNorthWest() {
+        for (int i = 0 ; i < 8 ; i++) {
+            position = position.move(Direction.NORTHWEST);
+
+            if (position.isValid()) {
+
+                possiblePositionList.add(position);
+            }
+        }
+        position = positionReal;
+    }
 	
 	@Override
 	public int hashCode() {

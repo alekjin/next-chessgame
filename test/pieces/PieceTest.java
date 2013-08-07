@@ -25,5 +25,15 @@ public class PieceTest extends TestCase {
 		Position source = new Position("a1");
 		Piece whitePawn = new Pawn(Color.WHITE, source);
 		assertEquals(new Empty(Color.NOCOLOR, source), whitePawn.leave());
+    }
+
+    public void testBishopGetPossibleMove() throws Exception {
+        Position source = new Position("c8");
+        Piece Bishop = new Bishop(Color.BLACK, source);
+        System.out.println(Bishop.getPossibleMoves());
+
+        Position source2 = new Position("c3");
+        Piece Bishop2 = new Bishop(Color.WHITE, source2);
+        System.out.println(Bishop2.getPossibleMoves());
 	}
 }

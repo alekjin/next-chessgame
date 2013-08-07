@@ -64,5 +64,6 @@ public class PositionTest extends TestCase {
 		assertFalse(new Position(0, 8).isValid());
 		assertFalse(new Position(-1, 0).isValid());
 		assertFalse(new Position(8, 0).isValid());
+
 	}
 }
