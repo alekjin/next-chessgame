@@ -66,6 +66,10 @@ public class Board {
             System.out.println("Error, This "+ target +" is out of range!");
         }
 
+        else if (findPiece(source).getColor() == findPiece(target).getColor()) {
+            System.out.println("Error, You cannot move Piece with same color!");
+        }
+
         else {
 		Piece targetPiece = findPiece(source);
 		Piece sourcePiece = targetPiece.leave();
@@ -75,7 +79,6 @@ public class Board {
 		
 		Rank targetRank = ranks.get(target.getY());
 		targetRank.move(targetPiece, target);
-        System.out.println("move ok");
         }
 
 	}

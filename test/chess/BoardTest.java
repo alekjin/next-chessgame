@@ -68,6 +68,9 @@ public class BoardTest extends TestCase {
         board.movePiece("a5", "a1");
         board.movePiece("a1", "a9");
 
+        // "c1" and "c2" are same color
+        board.movePiece("c1", "c2");
+
 
 	}
 }
