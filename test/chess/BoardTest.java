@@ -4,7 +4,9 @@ import junit.framework.TestCase;
 import pieces.Empty;
 import pieces.Pawn;
 import pieces.Piece;
-import pieces.Piece.Color;
+import pieces.PieceOperations;
+import pieces.PieceOperations.Color;
+import pieces.PieceOperations.Type;
 import pieces.Position;
 
 public class BoardTest extends TestCase {

@@ -1,6 +1,6 @@
 package pieces;
 
-import pieces.Piece.Color;
+import pieces.PieceOperations.Color;
 import junit.framework.TestCase;
 
 public class PieceTest extends TestCase {

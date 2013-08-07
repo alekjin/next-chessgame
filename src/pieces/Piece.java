@@ -3,33 +3,8 @@ package pieces;
 import java.util.*;
 
 
-public abstract class Piece {
-	public enum Color {
-		WHITE,
-		BLACK,
-		NOCOLOR;
-	}
-	
-	public enum Type {
-		PAWN('p'),
-		ROOK('r'),
-		KNIGHT('n'),
-		BISHOP('b'),
-		QUEEN('q'),
-		KING('k'),
-		EMPTY('.');
-		
-		private char symbol;
-		
-		private Type(char symbol) {
-			this.symbol = symbol;
-		}
-		
-		public char getSymbol() {
-			return symbol;
-		}
-	}
-	
+public abstract class Piece implements PieceOperations {
+
 	private Color color;
 	private Type type;
 	private Position position;
@@ -63,7 +38,7 @@ public abstract class Piece {
         if (Color.WHITE == color) {
             return true;
         }
-        
+
         return false;
     }
 
@@ -71,7 +46,7 @@ public abstract class Piece {
         if (Color.BLACK == color) {
             return true;
         }
-        
+
         return false;
     }
     
@@ -188,12 +163,12 @@ public abstract class Piece {
         position = positionReal;
     }
 
-    ArrayList<Position> deleteDuplicate(ArrayList<Position> list) {
+    ArrayList deleteDuplicate(ArrayList<Position> list) {
         ArrayList result = new ArrayList<Position>();
         HashSet hs = new HashSet(list);
 
         Iterator it = hs.iterator();
-        while(it.hasNext()){
+        while(it.hasNext()) {
             result.add(it.next());
         }
         return result;

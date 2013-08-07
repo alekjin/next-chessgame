@@ -4,12 +4,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pieces.Piece;
+import pieces.PieceOperations;
 import pieces.Position;
 
-public class Board {
+public class Board implements PieceOperations{
 	public static final String NEW_LINE = System.getProperty("line.separator");
 	public static final int ROW_SIZE = 8;
 	public static final int COLUMN_SIZE = 8;
+    private PieceOperations pieceOperations;
+        @Override
+        public char getSymbol() {
+            return pieceOperations.getSymbol();  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Position getPosition() {
+            return pieceOperations.getPosition();  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Color getColor() {
+            return pieceOperations.getColor();  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Piece leave() {
+            return pieceOperations.leave();  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public Piece move(Position target) {
+            return pieceOperations.move(target);  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
 	
 	List<Rank> ranks = new ArrayList<Rank>();
 	
@@ -63,7 +90,7 @@ public class Board {
         }
 
         else if (target.isValid() == false) {
-            System.out.println("Error, This "+ target +" is out of range!");
+            System.out.println("Error, This " + target + " is out of range!");
         }
 
         else if (findPiece(source).getColor() == findPiece(target).getColor()) {
@@ -103,4 +130,6 @@ public class Board {
 		}
 		return sb.toString();
 	}
+
+
 }
