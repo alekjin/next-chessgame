@@ -6,7 +6,7 @@ public interface PieceOperations {
     public enum Color {
         WHITE,
         BLACK,
-        NOCOLOR;
+        NOCOLOR
     }
 
     public enum Type {

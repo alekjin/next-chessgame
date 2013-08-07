@@ -1,6 +1,5 @@
 package pieces;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -31,9 +30,6 @@ public class Pawn extends Piece {
             changeMaxMove(1);
             getPossibleMovesNorth();
         }
-
-        else
-            ;
 
         return deleteDuplicate(possiblePositionList);
 	}

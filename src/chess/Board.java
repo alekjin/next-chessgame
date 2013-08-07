@@ -87,23 +87,19 @@ public class Board implements PieceOperations {
 
 	void movePiece(Position source, Position target) throws MyException {
 
-        if (findPiece(source).getSymbol() == Piece.Type.EMPTY.getSymbol()) {
+        if (findPiece(source).getSymbol() == Piece.Type.EMPTY.getSymbol())
             throw new MyException("Error, This " + source + " is Empty!");
-        }
 
-        if (target.isValid() == false) {
+        if (!target.isValid())
             throw new MyException("Error, This " + target + " is out of range!");
-        }
 
-        if (findPiece(source).getColor() == findPiece(target).getColor()) {
+        if (findPiece(source).getColor() == findPiece(target).getColor())
             throw new MyException("Error, You cannot move Piece with same color!");
-        }
 
-        if (findPiece(source).getPossibleMoves().contains(target) == false) {
+        if (!findPiece(source).getPossibleMoves().contains(target))
             throw new MyException("Error, You cannot move Piece with invalid place!" + NEW_LINE + "It can move only" + findPiece(source).getPossibleMoves());
-        }
 
-		Piece targetPiece = findPiece(source);
+        Piece targetPiece = findPiece(source);
 		Piece sourcePiece = targetPiece.leave();
 		
 		Rank sourceRank = ranks.get(source.getY());

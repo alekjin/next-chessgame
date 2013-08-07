@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PositionController {
-	private Position position;;
+	private Position position;
 
 	public PositionController(Position position) {
 		this.position = position;

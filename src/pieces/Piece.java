@@ -2,7 +2,6 @@ package pieces;
 
 import java.util.*;
 
-
 public abstract class Piece implements PieceOperations {
 
 	private Color color;
@@ -35,23 +34,16 @@ public abstract class Piece implements PieceOperations {
     }
 	
     boolean isWhite() {
-        if (Color.WHITE == color) {
-            return true;
-        }
+        return Color.WHITE == color;
 
-        return false;
     }
 
     boolean isBlack() {
-        if (Color.BLACK == color) {
-            return true;
-        }
-
-        return false;
+        return Color.BLACK == color;
     }
     
 	boolean matchColor(Color color) {
-		return this.color == color ? true : false;
+		return this.color == color;
 	}
 
 	public Piece leave() {
@@ -163,13 +155,12 @@ public abstract class Piece implements PieceOperations {
         position = positionReal;
     }
 
-    ArrayList deleteDuplicate(ArrayList<Position> list) {
-        ArrayList result = new ArrayList<Position>();
-        HashSet hs = new HashSet(list);
+    ArrayList<Position> deleteDuplicate(ArrayList<Position> list) {
+        ArrayList<Position> result = new ArrayList<Position>();
+        HashSet<Position> hs = new HashSet<Position>(list);
 
-        Iterator it = hs.iterator();
-        while(it.hasNext()) {
-            result.add(it.next());
+        for (Position h : hs) {
+            result.add(h);
         }
         return result;
     }
