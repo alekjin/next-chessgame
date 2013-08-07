@@ -38,7 +38,7 @@ public abstract class Piece {
     private Position positionReal;
     private int maxMove = 8;
     protected ArrayList<Position> possiblePositionList =  new ArrayList<Position>();
-	
+
 	Piece(Color color, Type type, Position position) {
 		this.color = color;
 		this.type = type;
@@ -90,7 +90,7 @@ public abstract class Piece {
 		return this;
 	}
 	
-	abstract List<Position> getPossibleMoves();
+	public abstract List<Position> getPossibleMoves();
 
     protected int changeMaxMove(int num) {
         return maxMove = num;
