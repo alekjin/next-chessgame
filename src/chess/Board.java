@@ -57,6 +57,12 @@ public class Board {
 	}
 
 	void movePiece(Position source, Position target) {
+        Piece sourcePieceTest = findPiece(source);
+
+        if (sourcePieceTest.getSymbol() == Piece.Type.EMPTY.getSymbol()) {
+            System.out.println("Error, This "+ source +" is EMPTY!");
+        }
+
 		Piece targetPiece = findPiece(source);
 		Piece sourcePiece = targetPiece.leave();
 		
