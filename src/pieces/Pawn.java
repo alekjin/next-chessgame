@@ -10,6 +10,12 @@ public class Pawn extends Piece {
 
 	@Override
 	List<Position> getPossibleMoves() {
-		return null;
+        changeMaxMove(1);
+		if (super.isBlack())
+            getPossibleMovesSouth();
+        else
+            getPossibleMovesNorth();
+
+        return possiblePositionList;
 	}
 }
