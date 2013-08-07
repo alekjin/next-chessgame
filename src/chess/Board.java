@@ -70,6 +70,12 @@ public class Board {
             System.out.println("Error, You cannot move Piece with same color!");
         }
 
+        else if (findPiece(source).getPossibleMoves().contains(target) == false) {
+            System.out.println("Error, You cannot move Piece with invalid place!");
+            System.out.println("It can move only");
+            System.out.println(findPiece(source).getPossibleMoves());
+        }
+
         else {
 		Piece targetPiece = findPiece(source);
 		Piece sourcePiece = targetPiece.leave();

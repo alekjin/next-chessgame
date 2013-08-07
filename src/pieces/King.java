@@ -8,8 +8,8 @@ public class King extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
-        super.changeMaxMove(1);
+	public List<Position> getPossibleMoves() {
+        changeMaxMove(1);
 		getPossibleMovesSouthEast();
         getPossibleMovesSouth();
         getPossibleMovesSouthWest();

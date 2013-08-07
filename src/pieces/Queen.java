@@ -9,7 +9,7 @@ public class Queen extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		getPossibleMovesWest();
         getPossibleMovesNorthWest();
         getPossibleMovesNorth();

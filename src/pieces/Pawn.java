@@ -1,5 +1,6 @@
 package pieces;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -9,7 +10,7 @@ public class Pawn extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		if (super.getPosition().getY() == 6 && super.isBlack()) {
             changeMaxMove(2);
             getPossibleMovesSouth();
@@ -18,17 +19,21 @@ public class Pawn extends Piece {
         else if (super.getPosition().getY() == 1 && super.isWhite()) {
             changeMaxMove(2);
             getPossibleMovesNorth();
+
         }
 
-        else if (super.isBlack()) {
+        else if (super.getPosition().getY() != 6 && super.isBlack()) {
             changeMaxMove(1);
             getPossibleMovesSouth();
         }
 
-        else {
+        else if (super.getPosition().getY() != 1 && super.isWhite()) {
             changeMaxMove(1);
             getPossibleMovesNorth();
         }
+
+        else
+            ;
 
         return possiblePositionList;
 	}

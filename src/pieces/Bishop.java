@@ -11,7 +11,7 @@ public class Bishop extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
         getPossibleMovesNorthWest();
         getPossibleMovesNorthEast();
         getPossibleMovesSouthEast();
