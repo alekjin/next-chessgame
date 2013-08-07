@@ -63,8 +63,11 @@ public class BoardTest extends TestCase {
 		assertEquals(new Pawn(Color.WHITE, target), board.findPiece(target));
 		System.out.println(board.generateBoard());
 
-        // "a5" == Empty Place
-        board.movePiece("a5", "a7");
+        // "a5" == Empty Place, "a9" == Invalid Place
+        board.movePiece("a5", "a9");
+        board.movePiece("a5", "a1");
+        board.movePiece("a1", "a9");
+
 
 	}
 }

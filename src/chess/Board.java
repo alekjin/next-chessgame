@@ -57,12 +57,16 @@ public class Board {
 	}
 
 	void movePiece(Position source, Position target) {
-        Piece sourcePieceTest = findPiece(source);
 
-        if (sourcePieceTest.getSymbol() == Piece.Type.EMPTY.getSymbol()) {
+        if (findPiece(source).getSymbol() == Piece.Type.EMPTY.getSymbol()) {
             System.out.println("Error, This "+ source +" is EMPTY!");
         }
 
+        else if (target.isValid() == false) {
+            System.out.println("Error, This "+ target +" is out of range!");
+        }
+
+        else {
 		Piece targetPiece = findPiece(source);
 		Piece sourcePiece = targetPiece.leave();
 		
@@ -71,6 +75,9 @@ public class Board {
 		
 		Rank targetRank = ranks.get(target.getY());
 		targetRank.move(targetPiece, target);
+        System.out.println("move ok");
+        }
+
 	}
 	
 	String generateRank(int rankIndex) {
