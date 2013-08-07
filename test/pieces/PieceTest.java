@@ -42,4 +42,10 @@ public class PieceTest extends TestCase {
         Piece Empty = new Empty(Color.NOCOLOR, source);
         System.out.println(Empty.getPossibleMoves());
     }
+
+    public void testKingGetPossibleMove() throws Exception {
+        Position source = new Position("e4");
+        Piece King = new King(Color.BLACK, source);
+        System.out.println(King.getPossibleMoves());
+    }
 }

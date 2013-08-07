@@ -36,6 +36,7 @@ public abstract class Piece {
 	private Type type;
 	private Position position;
     private Position positionReal;
+    private int maxMove = 8;
     protected ArrayList<Position> possiblePositionList =  new ArrayList<Position>();
 	
 	Piece(Color color, Type type, Position position) {
@@ -83,8 +84,12 @@ public abstract class Piece {
 	
 	abstract List<Position> getPossibleMoves();
 
+    protected int changeMaxMove(int num) {
+        return maxMove = num;
+    }
+
     protected void getPossibleMovesNorth() {
-        for (int i = 0 ; i < 8 ; i++) {
+        for (int i = 0 ; i < maxMove ; i++) {
             position = position.move(Direction.NORTH);
 
             if (position.isValid()) {
@@ -96,7 +101,7 @@ public abstract class Piece {
     }
 
     protected void getPossibleMovesNorthEast() {
-        for (int i = 0 ; i < 8 ; i++) {
+        for (int i = 0 ; i < maxMove ; i++) {
             position = position.move(Direction.NORTHEAST);
 
             if (position.isValid()) {
@@ -108,7 +113,7 @@ public abstract class Piece {
     }
 
     protected void getPossibleMovesEast() {
-        for (int i = 0 ; i < 8 ; i++) {
+        for (int i = 0 ; i < maxMove ; i++) {
             position = position.move(Direction.EAST);
 
             if (position.isValid()) {
@@ -120,7 +125,7 @@ public abstract class Piece {
     }
 
     protected void getPossibleMovesSouthEast() {
-        for (int i = 0 ; i < 8 ; i++) {
+        for (int i = 0 ; i < maxMove ; i++) {
             position = position.move(Direction.SOUTHEAST);
 
             if (position.isValid())
@@ -130,7 +135,7 @@ public abstract class Piece {
     }
 
     protected void getPossibleMovesSouth() {
-        for (int i = 0 ; i < 8 ; i++) {
+        for (int i = 0 ; i < maxMove ; i++) {
             position = position.move(Direction.SOUTH);
 
             if (position.isValid()) {
@@ -142,7 +147,7 @@ public abstract class Piece {
     }
 
     protected void getPossibleMovesSouthWest() {
-        for (int i = 0 ; i < 8 ; i++) {
+        for (int i = 0 ; i < maxMove ; i++) {
             position = position.move(Direction.SOUTHWEST);
 
             if (position.isValid()) {
@@ -154,7 +159,7 @@ public abstract class Piece {
     }
 
     protected void getPossibleMovesWest() {
-        for (int i = 0 ; i < 8 ; i++) {
+        for (int i = 0 ; i < maxMove ; i++) {
             position = position.move(Direction.WEST);
 
             if (position.isValid()) {
@@ -166,7 +171,7 @@ public abstract class Piece {
     }
 
     protected void getPossibleMovesNorthWest() {
-        for (int i = 0 ; i < 8 ; i++) {
+        for (int i = 0 ; i < maxMove ; i++) {
             position = position.move(Direction.NORTHWEST);
 
             if (position.isValid()) {

@@ -9,7 +9,17 @@ public class King extends Piece {
 
 	@Override
 	List<Position> getPossibleMoves() {
-		return null;
+        super.changeMaxMove(1);
+		getPossibleMovesSouthEast();
+        getPossibleMovesSouth();
+        getPossibleMovesSouthWest();
+        getPossibleMovesNorth();
+        getPossibleMovesEast();
+        getPossibleMovesNorthEast();
+        getPossibleMovesNorthWest();
+        getPossibleMovesWest();
+
+        return possiblePositionList;
 	}
 }
 
