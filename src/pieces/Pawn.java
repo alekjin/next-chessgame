@@ -12,23 +12,23 @@ public class Pawn extends Piece {
 	public List<Position> getPossibleMoves() {
 		if (super.getPosition().getY() == 6 && super.isBlack()) {
             changeMaxMove(2);
-            getPossibleMovesSouth();
+            getPossibleMovesDirection(Direction.SOUTH);
         }
 
         else if (super.getPosition().getY() == 1 && super.isWhite()) {
             changeMaxMove(2);
-            getPossibleMovesNorth();
+            getPossibleMovesDirection(Direction.NORTH);
 
         }
 
         else if (super.getPosition().getY() != 6 && super.isBlack()) {
             changeMaxMove(1);
-            getPossibleMovesSouth();
+            getPossibleMovesDirection(Direction.SOUTH);
         }
 
         else if (super.getPosition().getY() != 1 && super.isWhite()) {
             changeMaxMove(1);
-            getPossibleMovesNorth();
+            getPossibleMovesDirection(Direction.NORTH);
         }
 
         return deleteDuplicate(possiblePositionList);

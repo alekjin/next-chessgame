@@ -11,10 +11,10 @@ public class Bishop extends Piece {
 
 	@Override
 	public List<Position> getPossibleMoves() {
-        getPossibleMovesNorthWest();
-        getPossibleMovesNorthEast();
-        getPossibleMovesSouthEast();
-        getPossibleMovesSouthWest();
+        getPossibleMovesDirection(Direction.NORTHWEST);
+        getPossibleMovesDirection(Direction.NORTHEAST);
+        getPossibleMovesDirection(Direction.SOUTHEAST);
+        getPossibleMovesDirection(Direction.SOUTHWEST);
 
         return possiblePositionList;
 	}

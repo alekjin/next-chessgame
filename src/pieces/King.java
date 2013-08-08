@@ -10,14 +10,14 @@ public class King extends Piece {
 	@Override
 	public List<Position> getPossibleMoves() {
         changeMaxMove(1);
-		getPossibleMovesSouthEast();
-        getPossibleMovesSouth();
-        getPossibleMovesSouthWest();
-        getPossibleMovesNorth();
-        getPossibleMovesEast();
-        getPossibleMovesNorthEast();
-        getPossibleMovesNorthWest();
-        getPossibleMovesWest();
+        getPossibleMovesDirection(Direction.SOUTHEAST);
+        getPossibleMovesDirection(Direction.SOUTH);
+        getPossibleMovesDirection(Direction.SOUTHWEST);
+        getPossibleMovesDirection(Direction.NORTH);
+        getPossibleMovesDirection(Direction.EAST);
+        getPossibleMovesDirection(Direction.NORTHEAST);
+        getPossibleMovesDirection(Direction.NORTHWEST);
+        getPossibleMovesDirection(Direction.WEST);
 
         return possiblePositionList;
 	}

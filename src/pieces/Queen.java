@@ -10,14 +10,14 @@ public class Queen extends Piece {
 
 	@Override
 	public List<Position> getPossibleMoves() {
-		getPossibleMovesWest();
-        getPossibleMovesNorthWest();
-        getPossibleMovesNorth();
-        getPossibleMovesNorthEast();
-        getPossibleMovesEast();
-        getPossibleMovesSouth();
-        getPossibleMovesSouthEast();
-        getPossibleMovesSouthWest();
+        getPossibleMovesDirection(Direction.SOUTHEAST);
+        getPossibleMovesDirection(Direction.SOUTH);
+        getPossibleMovesDirection(Direction.SOUTHWEST);
+        getPossibleMovesDirection(Direction.NORTH);
+        getPossibleMovesDirection(Direction.EAST);
+        getPossibleMovesDirection(Direction.NORTHEAST);
+        getPossibleMovesDirection(Direction.NORTHWEST);
+        getPossibleMovesDirection(Direction.WEST);
 
         return possiblePositionList;
 	}

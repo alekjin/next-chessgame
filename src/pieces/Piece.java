@@ -61,91 +61,9 @@ public abstract class Piece implements PieceOperations {
         return maxMove = num;
     }
 
-    protected void getPossibleMovesNorth() {
+    protected void getPossibleMovesDirection(Direction direction) {
         for (int i = 0 ; i < maxMove ; i++) {
-            position = position.move(Direction.NORTH);
-
-            if (position.isValid()) {
-
-                possiblePositionList.add(position);
-            }
-        }
-        position = positionReal;
-    }
-
-    protected void getPossibleMovesNorthEast() {
-        for (int i = 0 ; i < maxMove ; i++) {
-            position = position.move(Direction.NORTHEAST);
-
-            if (position.isValid()) {
-
-                possiblePositionList.add(position);
-            }
-        }
-        position = positionReal;
-    }
-
-    protected void getPossibleMovesEast() {
-        for (int i = 0 ; i < maxMove ; i++) {
-            position = position.move(Direction.EAST);
-
-            if (position.isValid()) {
-
-                possiblePositionList.add(position);
-            }
-        }
-        position = positionReal;
-    }
-
-    protected void getPossibleMovesSouthEast() {
-        for (int i = 0 ; i < maxMove ; i++) {
-            position = position.move(Direction.SOUTHEAST);
-
-            if (position.isValid())
-                possiblePositionList.add(position);
-        }
-        position = positionReal;
-    }
-
-    protected void getPossibleMovesSouth() {
-        for (int i = 0 ; i < maxMove ; i++) {
-            position = position.move(Direction.SOUTH);
-
-            if (position.isValid()) {
-
-                possiblePositionList.add(position);
-            }
-        }
-        position = positionReal;
-    }
-
-    protected void getPossibleMovesSouthWest() {
-        for (int i = 0 ; i < maxMove ; i++) {
-            position = position.move(Direction.SOUTHWEST);
-
-            if (position.isValid()) {
-
-                possiblePositionList.add(position);
-            }
-        }
-        position = positionReal;
-    }
-
-    protected void getPossibleMovesWest() {
-        for (int i = 0 ; i < maxMove ; i++) {
-            position = position.move(Direction.WEST);
-
-            if (position.isValid()) {
-
-                possiblePositionList.add(position);
-            }
-        }
-        position = positionReal;
-    }
-
-    protected void getPossibleMovesNorthWest() {
-        for (int i = 0 ; i < maxMove ; i++) {
-            position = position.move(Direction.NORTHWEST);
+            position = position.move(direction);
 
             if (position.isValid()) {
 
