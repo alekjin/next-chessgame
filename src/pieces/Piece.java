@@ -17,13 +17,13 @@ public abstract class Piece implements PieceOperations {
 		this.position = position;
         positionReal = position;
 	}
-	
+
 	public char getSymbol() {
 		if (isBlack()) {
 			return Character.toUpperCase(type.getSymbol());
 		}
 		return type.getSymbol();
-	}
+    }
 
     public Position getPosition() {
         return position;
@@ -83,6 +83,25 @@ public abstract class Piece implements PieceOperations {
         return result;
     }
 
+    @Override
+    public Piece setPiece(Color color, Type type, Position position) {
+        switch (type) {
+            case BISHOP :
+                return new Bishop(color, position);
+            case ROOK :
+                return new Rook(color, position);
+            case KING :
+                return new King(color, position);
+            case KNIGHT :
+                return new Knight(color, position);
+            case PAWN :
+                return new Pawn(color, position);
+            case QUEEN :
+                return new Queen(color, position);
+            default :
+                return new Empty(color, position);
+        }
+    }
 	
 	@Override
 	public int hashCode() {

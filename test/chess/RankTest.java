@@ -28,28 +28,28 @@ public class RankTest extends TestCase {
 	}
 	
 	public void testInitializeWhitePawn() throws Exception {
-		rank.initializeWhitePawn();
+		rank.initializePawn(Color.WHITE);
 		assertEquals(WHITE_PAWN_RANK, rank.generate());
 	}
 	
 	
 	public void testInitializeBlackPawn() throws Exception {
-		rank.initializeBlackPawn();
+		rank.initializePawn(Color.BLACK);
 		assertEquals(BLACK_PAWN_RANK, rank.generate());
 	}
 	
 	public void testInitializeWhiteExceptPawn() throws Exception {
-		rank.initializeWhiteExceptPawn();
+		rank.initializeExceptPawn(Color.WHITE);
 		assertEquals(WHITE_EXCEPT_PAWN_RANK, rank.generate());
 	}
 	
 	public void testInitializeBlackExceptPawn() throws Exception {
-		rank.initializeBlackExceptPawn();
+		rank.initializeExceptPawn(Color.BLACK);
 		assertEquals(BLACK_EXCEPT_PAWN_RANK, rank.generate());
 	}
 	
 	public void testFindPiece() throws Exception {
-		rank.initializeWhiteExceptPawn();
+		rank.initializeExceptPawn(Color.WHITE);
 		Position position = new Position("d1");
 		assertEquals(new Queen(Color.WHITE, position), rank.findPiece(position));
 		
@@ -59,7 +59,7 @@ public class RankTest extends TestCase {
 	
 	public void testMove() throws Exception {
 		rank = new Rank(1);
-		rank.initializeWhitePawn();
+		rank.initializePawn(Color.WHITE);
 		Position source = new Position("d2");
 		Position target = new Position("d3");
 		

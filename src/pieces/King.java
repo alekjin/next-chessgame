@@ -2,7 +2,8 @@ package pieces;
 
 import java.util.List;
 
-public class King extends Piece {
+public class King extends Piece implements PieceOperations {
+
 	public King(Color color, Position position) {
 		super(color, Type.KING, position);
 	}
@@ -21,5 +22,10 @@ public class King extends Piece {
 
         return possiblePositionList;
 	}
+
+    @Override
+    public Piece setPiece(Color color, Type type, Position position) {
+        return new King(color, position);
+    }
 }
 

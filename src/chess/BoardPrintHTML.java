@@ -1,7 +1,6 @@
 package chess;
 
 public class BoardPrintHTML implements BoardPrint{
-
     public static final String NEW_LINE = "<br />";
 
     @Override

@@ -1,6 +1,5 @@
 package chess;
 
-
 import junit.framework.TestCase;
 import pieces.Empty;
 import pieces.Pawn;
@@ -48,8 +47,18 @@ public class BoardTest extends TestCase {
 	}
 	
 	public void testInitializeEmpty() throws Exception {
-		board.initializeEmpty();
-		System.out.println(board.generateBoard());
+        board.setBoardInitializeType(new InitializeEmpty());
+		board.initialize();
+        String expected =
+                "........" + Board.NEW_LINE +
+                "........" + Board.NEW_LINE +
+                "........" + Board.NEW_LINE +
+                "........" + Board.NEW_LINE +
+                "........" + Board.NEW_LINE +
+                "........" + Board.NEW_LINE +
+                "........" + Board.NEW_LINE +
+                "........" + Board.NEW_LINE;
+        assertEquals(expected, board.generateBoard());
 	}
 	
 	public void testMovePiece() throws Exception {
@@ -62,7 +71,17 @@ public class BoardTest extends TestCase {
 		board.movePiece(source, target);
 		assertEquals(new Empty(Color.NOCOLOR, source), board.findPiece(source));
 		assertEquals(new Pawn(Color.WHITE, target), board.findPiece(target));
-		System.out.println(board.generateBoard());
+
+        String expected =
+                "RNBQKBNR" + Board.NEW_LINE +
+                "PPPPPPPP" + Board.NEW_LINE +
+                "........" + Board.NEW_LINE +
+                "........" + Board.NEW_LINE +
+                "........" + Board.NEW_LINE +
+                "p......." + Board.NEW_LINE +
+                ".ppppppp" + Board.NEW_LINE +
+                "rnbqkbnr" + Board.NEW_LINE;
+        assertEquals(expected, board.generateBoard());
 
         try {
         // "a5" == Empty Place, "a9" == Invalid Place

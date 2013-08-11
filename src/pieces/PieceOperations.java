@@ -29,9 +29,7 @@ public interface PieceOperations {
         }
     }
 
-    char getSymbol();
-    Position getPosition();
-    Color getColor();
     Piece leave();
     Piece move(Position target);
+    Piece setPiece(Color color, Type type, Position position);
 }
